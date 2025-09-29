@@ -11,7 +11,8 @@ else
     echo "given number $NUMBER is greaterthan 10"
 fi
 #even or odd numbers
-if [ {$NUMBER}%2 -eq 0 ]; then
+NUMBER=$1
+if [ $NUMBER%2 -eq 0 ]; then
     echo "given number $NUMBER is even"
 else 
     echo "given number $NUMBER is odd"
