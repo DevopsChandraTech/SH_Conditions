@@ -3,10 +3,10 @@
 #shell script is depending on commonsense
 
 NUMBER=$1
-if [ NUMBER -lt 10 ]; then
-    echo "given number lessthan 10"
-elif [ NUMBER -eq 10 ]; then
-    echo "given number is 10"
+if [ $NUMBER -lt 10 ]; then
+    echo "given $NUMBER number lessthan 10"
+elif [ $NUMBER -eq 10 ]; then
+    echo "given $NUMBER number is 10"
 else
-    echo "given number is greaterthan 10"
+    echo "given $NUMBER number is greaterthan 10"
 fi
