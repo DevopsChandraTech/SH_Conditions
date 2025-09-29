@@ -9,3 +9,4 @@ elif [ NUMBER -eq 10 ]; then
     echo "given number is 10"
 else 
     echo "given number $1 is greaterthan 10"
+fi
