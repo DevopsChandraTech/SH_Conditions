@@ -4,9 +4,9 @@
 
 NUMBER=$1
 if [ NUMBER -lt 10 ]; then
-    echo "given number $1 lessthan 10"
+    echo "given number lessthan 10"
 elif [ NUMBER -eq 10 ]; then
     echo "given number is 10"
 else
-    echo "given number $1 is greaterthan 10"
+    echo "given number is greaterthan 10"
 fi
