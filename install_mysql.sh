@@ -9,4 +9,3 @@ if [ $? -eq 0 ];then
     echo "Success:: the installation"
 else
     echo "Error:: not installing the app"
-fi
