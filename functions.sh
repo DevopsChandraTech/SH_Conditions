@@ -17,7 +17,7 @@ VALIDATE(){ #functions taken inputs as a args like shell script args
 dnf install mysql -y
 VALIDATE $? mysql
 #nginx installation:
-dnf install nnginx -y
+dnf install nginx -y
 VALIDATE $? nginx
 #unzip installation:
 dnf install unzip -y
