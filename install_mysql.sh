@@ -5,7 +5,7 @@ if [ $USER -ne 0 ];then
 else
     echo "pls install the application"
 fi
-dnf install mysql -y
+dnf remove mysql -y
 if [ $? -eq 0 ];then
     echo "Success:: the installation"
 else
