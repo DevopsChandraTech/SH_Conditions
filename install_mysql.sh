@@ -1,7 +1,7 @@
 #!/bin/bash
 USER_ID=$(id -u)
 
-if [ $USER_ID -nq 0 ];then
+if [ $USER_ID -ne 0 ];then
     echo "Error:: user has not root priviliges"
 fi
 
