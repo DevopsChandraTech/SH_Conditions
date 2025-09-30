@@ -9,3 +9,4 @@ dnf install mysql -y
 
 if [ $? -eq 0 ];then
     echo "Success:: the installation"
+fi
