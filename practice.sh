@@ -14,7 +14,7 @@ if [ $1 -ne 0 ]; then
     echo "ERROR:: the command not found"
     exit 1
 else
-    echo -e "Success:: the $2 installation \e[32m Successful $N"
+    echo -e "Success:: the $2 installation \e[32m Successful \e[0m"
 fi
 
 }
