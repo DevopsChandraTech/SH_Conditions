@@ -9,7 +9,7 @@ if [ $USER_ID -ne 0 ]; then
 fi
 
 #mysql installation
-dnf installl mysql -y
+dnf install mysql -y
 
 if [ $? -ne 0 ]; then
     echo "ERROR:: the command not found"
