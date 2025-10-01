@@ -25,7 +25,7 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y
     VALIDATE $? mysql
 else
-    echo -e "SUCCESS:: $2 already installed \e[33m SKIPPING \e[0m"
+    echo -e "\e[32m SUCCESS \e[0m :: $2 already installed \e[33m SKIPPING \e[0m"
 fi
 #nginx installation:
 dnf list installed nginx
