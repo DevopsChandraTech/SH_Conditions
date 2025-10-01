@@ -34,7 +34,7 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y
     VALIDATE $? nginx
 else
-    echo -e "SUCCESS:: $2 already installed \e[33m SKIPPING \e[0m"
+    echo -e "\e[32m SUCCESS \e[0m :: $2 already installed \e[33m SKIPPING \e[0m"
 fi
 #unzip installation:
 dnf list installed unzip
@@ -43,7 +43,7 @@ if [ $? -ne 0 ]; then
     dnf install unzip -y
     VALIDATE $? unzip
 else
-    echo -e "SUCCESS:: $2 already installed \e[33m SKIPPING \e[0m"
+    echo -e "\e[32m SUCCESS \e[0m :: $2 already installed \e[33m SKIPPING \e[0m"
 fi
 #unzip installation:
 dnf list installed python3
@@ -52,5 +52,5 @@ if [ $? -ne 0 ]; then
     dnf install python3 -y
     VALIDATE $? python3
 else
-    echo -e "SUCCESS:: $2 already installed \e[33m SKIPPING \e[0m"
+    echo -e "\e[32m SUCCESS \e[0m :: $2 already installed \e[33m SKIPPING \e[0m"
 fi
