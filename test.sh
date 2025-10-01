@@ -10,6 +10,6 @@ if [ $? -ne 0 ]; then
     echo "server not installed into this system"
     dnf install mysql -y
 else    
-    echo "mysql already exists skipping...!"
+    echo "mysql already exists \e[33m skipping...!"
 fi
 
