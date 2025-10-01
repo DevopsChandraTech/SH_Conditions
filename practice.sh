@@ -16,18 +16,29 @@ if [ $1 -ne 0 ]; then
 else
     echo -e "Success:: the $2 installation \e[32m Successful \e[33m"
 fi
-
 }
 
 #mysql installation:
-dnf install mysql -y
-VALIDATE $? mysql
-
+if [ $? -ne 0 ]; then
+    echo -e "ERROR:: $2 not installed into this system \e[31m"
+    dnf install mysql -y
+    VALIDATE $? mysql
+else
+    echo -e "SUCCESS:: $2 already installed \e[33m SKIPPING \e[0m"
+fi
 #nginx installation:
-dnf install nginx -y
-VALIDATE $? nginx
-
+if [ $? -ne 0 ]; then
+    echo -e "ERROR:: $2 not installed into this system \e[31m"
+    dnf install nginx -y
+    VALIDATE $? nginx
+else
+    echo -e "SUCCESS:: $2 already installed \e[33m SKIPPING \e[0m"
+fi
 #unzip installation:
-dnf install unzip -y
-VALIDATE $? unzip
-
+if [ $? -ne 0 ]; then
+    echo -e "ERROR:: $2 not installed into this system \e[31m"
+    dnf install unzip -y
+    VALIDATE $? unzip
+else
+    echo -e "SUCCESS:: $2 already installed \e[33m SKIPPING \e[0m"
+fi
