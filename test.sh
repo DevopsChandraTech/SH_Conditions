@@ -11,4 +11,5 @@ if [ $? -ne 0 ]; then
     dnf install mysql -y
 else    
     echo "mysql already exists skipping...!"
+fi
 
