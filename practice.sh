@@ -14,7 +14,7 @@ if [ $1 -ne 0 ]; then
     echo "ERROR:: the command not found"
     exit 1
 else
-    echo "Success:: the $2 installation successful"
+    echo -e "Success:: the $2 installation \e[31m Successful"
 fi
 
 }
@@ -30,3 +30,4 @@ VALIDATE $? nginx
 #unzip installation:
 dnf install unzip -y
 VALIDATE $? unzip
+
