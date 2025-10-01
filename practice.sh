@@ -19,6 +19,7 @@ fi
 }
 
 #mysql installation:
+dnf list installed mysql 
 if [ $? -ne 0 ]; then
     echo -e "ERROR:: $2 not installed into this system \e[31m"
     dnf install mysql -y
@@ -28,7 +29,7 @@ else
 fi
 #nginx installation:
 if [ $? -ne 0 ]; then
-    echo -e "ERROR:: $2 not installed into this system \e[31m"
+    echo -e "ERROR:: $2 not installed into this system \e[31m Failure \e[0m"
     dnf install nginx -y
     VALIDATE $? nginx
 else
@@ -36,7 +37,7 @@ else
 fi
 #unzip installation:
 if [ $? -ne 0 ]; then
-    echo -e "ERROR:: $2 not installed into this system \e[31m"
+    echo -e "ERROR:: $2 not installed into this system \e[31m Failure \e[0m"
     dnf install unzip -y
     VALIDATE $? unzip
 else
@@ -44,7 +45,7 @@ else
 fi
 #unzip installation:
 if [ $? -ne 0 ]; then
-    echo -e "ERROR:: $2 not installed into this system \e[31m"
+    echo -e "ERROR:: $2 not installed into this system \e[31m Failure \e[0m"
     dnf install python3 -y
     VALIDATE $? python3
 else
