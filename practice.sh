@@ -42,3 +42,11 @@ if [ $? -ne 0 ]; then
 else
     echo -e "SUCCESS:: $2 already installed \e[33m SKIPPING \e[0m"
 fi
+#unzip installation:
+if [ $? -ne 0 ]; then
+    echo -e "ERROR:: $2 not installed into this system \e[31m"
+    dnf install python3 -y
+    VALIDATE $? python3
+else
+    echo -e "SUCCESS:: $2 already installed \e[33m SKIPPING \e[0m"
+fi
