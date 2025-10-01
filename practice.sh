@@ -8,32 +8,25 @@ if [ $USER_ID -ne 0 ]; then
     exit 1
 fi
 
-#mysql installation:
-dnf install mysql -y
+VALIDATE(){ #functions take inputs as args like shell script args
 
-if [ $? -ne 0 ]; then
+if [ $1 -ne 0 ]; then
     echo "ERROR:: the command not found"
     exit 1
 else
-    echo "Success:: the mysql installation successful"
+    echo "Success:: the $2 installation successful"
 fi
+
+}
+
+#mysql installation:
+dnf install mysql -y
+VALIDATE $? mysql
 
 #nginx installation:
 dnf install nginx -y
-
-if [ $? -ne 0 ]; then
-    echo "ERROR:: the command not found"
-    exit 1
-else
-    echo "Success:: the nginx installation successful"
-fi
+VALIDATE $? nginx
 
 #unzip installation:
 dnf install unzip -y
-
-if [ $? -ne 0 ]; then
-    echo "ERROR:: the command not found"
-    exit 1
-else
-    echo "Success:: the unzip installation successful"
-fi
+VALIDATE $? unzip
