@@ -28,7 +28,7 @@ else
 fi
 }
 #mysql installation
-dnf list installed mysql 
+dnf list installed mysql &>>$LOG_FILENAME
 if [ $? -ne 0 ];then
 	echo "mysql not installed proceed with installation"
 	dnf install mysql -y &>>$LOG_FILENAME
@@ -37,7 +37,7 @@ else
 	echo -e "$B $2 $N already installed $Y Skipping...!$N"
 fi
 #unzip installation
-dnf list installed unzip 
+dnf list installed unzip &>>$LOG_FILENAME
 if [ $? -ne 0 ];then
 	echo "unzip not installed proceed with installation"
 	dnf install unzip -y &>>$LOG_FILENAME
@@ -46,7 +46,7 @@ else
 	echo -e "$B $2 $N already installed $Y Skipping...!$N"
 fi
 #tree installation
-dnf list installed tree
+dnf list installed tree &>>$LOG_FILENAME
 if [ $? -ne 0 ];then
 	echo "tree not installed proceed with installation"
 	dnf install tree -y &>>$LOG_FILENAME
@@ -55,7 +55,7 @@ else
 	echo -e "$B $2 $N already installed $Y Skipping...!$N"
 fi
 #python3 installation
-dnf list installed python3
+dnf list installed python3 &>>$LOG_FILENAME
 if [ $? -ne 0 ];then
 	echo "python3 not installed proceed with installation"
 	dnf install python3 -y &>>$LOG_FILENAME
