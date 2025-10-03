@@ -9,7 +9,7 @@ B="\e[34m"
 N="\e[0m"
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-LOG_FILENAME="$LOGS_FOLDER/$FILENAME.log"
+LOG_FILENAME="$LOGS_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOGS_FOLDER
 
 if [ $USER_ID -ne 0 ]; then
