@@ -7,19 +7,20 @@ if [ $USER_ID -ne 0 ]; then
     echo "ERROR:: NEED TO RUN WITH ROOT USER PRIVILIZES"
     exit 1
 fi
+#FUNCTIONS
+VALIDATE(){ #functions passing the variable as args like shell script args
+if [ $1 -ne 0 ]; then
+    echo "ERROR:: COMMAND NOT FOUND PLS CHECK ONCE THE COMMAND"
+    exit 1
+else 
+    echo "SUCCESS:: $2 INSTALLATION IS SUCCESSFULL"
+fi
+}
 #mysql installation
 dnf install mysql -y
-if [ $? -ne 0 ]; then
-    echo "ERROR:: COMMAND NOT FOUND PLS CHECK ONCE THE COMMAND"
-    exit 1
-else 
-    echo "SUCCESS:: MYSQL INSTALLATION IS SUCCESSFULL"
-fi
+VALIDATE $? MYSQL
 #unzip installation
 dnf install unzip -y
-if [ $? -ne 0 ]; then
-    echo "ERROR:: COMMAND NOT FOUND PLS CHECK ONCE THE COMMAND"
-    exit 1
-else 
-    echo "SUCCESS:: UNZIP INSTALLATION IS SUCCESSFULL"
-fi
+VALIDATE $? UNZIP
+dnf install tree -y
+VALIDATE $? TREE
