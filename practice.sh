@@ -49,3 +49,12 @@ if [ $? -ne 0 ];then
 else
 	echo -e "$B $2 $N already installed $Y Skipping...!$N"
 fi
+#python3 installation
+dnf list installed tree
+if [ $? -ne 0 ];then
+	echo "python3 not installed proceed with installation"
+	dnf install python3 -y
+	VALIDATE $? PYTHON3
+else
+	echo -e "$B $2 $N already installed $Y Skipping...!$N"
+fi
