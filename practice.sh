@@ -18,7 +18,7 @@ if [ $1 -ne 0 ]; then
     exit 1
 else 
     echo -e "SUCCESS::$G $2 $N INSTALLATION IS $G SUCCESSFULL $N "
-    echo "SUCCESS"
+    echo -e "$Y SUCCESS $N"
 fi
 }
 #mysql installation
