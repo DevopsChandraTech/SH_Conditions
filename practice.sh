@@ -5,6 +5,7 @@ USER_ID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
+B="\e[34m"
 N="\e[0m"
 
 if [ $USER_ID -ne 0 ]; then
@@ -18,14 +19,31 @@ if [ $1 -ne 0 ]; then
     exit 1
 else 
     echo -e "SUCCESS::$G $2 $N INSTALLATION IS $Y SUCCESSFULL $N "
-    echo -e "$GSUCCESSFULL $N"
+    echo -e "$G SUCCESSFULL $N"
 fi
 }
 #mysql installation
-dnf install mysql -y
-VALIDATE $? MYSQL
+dnf list installed mysql 
+if [ $? -ne 0 ];then
+	echo "mysql not installed proceed with installation"
+	dnf install mysql -y
+	VALIDATE $? mysql
+else
+	echo "$B $2 $N already installed $Y Skipping...!$N"
+
 #unzip installation
-dnf install unzip -y
-VALIDATE $? UNZIP
-dnf install tree -y
-VALIDATE $? TREE
+dnf list installed unzip 
+if [ $? -ne 0 ];then
+	echo "mysql not installed proceed with installation"
+	dnf install unzip -y
+	VALIDATE $? UNZIP
+else
+	echo "$B $2 $N already installed $Y Skipping...!$N"
+#tree installation
+dnf list installed tree
+if [ $? -ne 0 ];then
+	echo "mysql not installed proceed with installation"
+	dnf install tree -y
+	VALIDATE $? TREE
+else
+	echo "$B $2 $N already installed $Y Skipping...!$N"
