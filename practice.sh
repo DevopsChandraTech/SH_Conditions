@@ -30,7 +30,7 @@ if [ $? -ne 0 ];then
 	VALIDATE $? mysql
 else
 	echo "$B $2 $N already installed $Y Skipping...!$N"
-
+fi
 #unzip installation
 dnf list installed unzip 
 if [ $? -ne 0 ];then
@@ -39,6 +39,7 @@ if [ $? -ne 0 ];then
 	VALIDATE $? UNZIP
 else
 	echo "$B $2 $N already installed $Y Skipping...!$N"
+fi
 #tree installation
 dnf list installed tree
 if [ $? -ne 0 ];then
@@ -47,3 +48,4 @@ if [ $? -ne 0 ];then
 	VALIDATE $? TREE
 else
 	echo "$B $2 $N already installed $Y Skipping...!$N"
+fi
