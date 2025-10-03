@@ -17,7 +17,8 @@ if [ $1 -ne 0 ]; then
     echo -e "ERROR:: COMMAND NOT FOUND PLS CHECK ONCE THE $R ERROR COMMAND $N"
     exit 1
 else 
-    echo -e "SUCCESS:: $2 INSTALLATION IS $R SUCCESSFULL $N"
+    echo -e "SUCCESS:: $2 INSTALLATION IS $G SUCCESSFULL $N"
+    echo "SUCCESS"
 fi
 }
 #mysql installation
