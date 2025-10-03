@@ -16,7 +16,7 @@ else
     echo "SUCCESS:: MYSQL INSTALLATION IS SUCCESSFULL"
 fi
 #unzip installation
-dnf installl unzip -y
+dnf install unzip -y
 if [ $? -ne 0 ]; then
     echo "ERROR:: COMMAND NOT FOUND PLS CHECK ONCE THE COMMAND"
     exit 1
