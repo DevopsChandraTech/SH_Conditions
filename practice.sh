@@ -2,6 +2,10 @@
 #check the user has root privilizes or not
 #id -u
 USER_ID=$(id -u)
+R=$(\e[31m)
+G=$(\e[32m)
+Y=$(\e[33m)
+N=$(\e[34m)
 
 if [ $USER_ID -ne 0 ]; then
     echo "ERROR:: NEED TO RUN WITH ROOT USER PRIVILIZES"
@@ -10,10 +14,10 @@ fi
 #FUNCTIONS
 VALIDATE(){ #functions passing the variable as args like shell script args
 if [ $1 -ne 0 ]; then
-    echo "ERROR:: COMMAND NOT FOUND PLS CHECK ONCE THE COMMAND"
+    echo "ERROR:: COMMAND NOT FOUND PLS CHECK ONCE THE $R ERROR COMMAND $N"
     exit 1
 else 
-    echo "SUCCESS:: $2 INSTALLATION IS SUCCESSFULL"
+    echo "SUCCESS:: $2 INSTALLATION IS $R SUCCESSFULL $N"
 fi
 }
 #mysql installation
