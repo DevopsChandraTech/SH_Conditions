@@ -34,7 +34,7 @@ fi
 #unzip installation
 dnf list installed unzip 
 if [ $? -ne 0 ];then
-	echo "mysql not installed proceed with installation"
+	echo "unzip not installed proceed with installation"
 	dnf install unzip -y
 	VALIDATE $? UNZIP
 else
@@ -43,7 +43,7 @@ fi
 #tree installation
 dnf list installed tree
 if [ $? -ne 0 ];then
-	echo "mysql not installed proceed with installation"
+	echo "tree not installed proceed with installation"
 	dnf install tree -y
 	VALIDATE $? TREE
 else
