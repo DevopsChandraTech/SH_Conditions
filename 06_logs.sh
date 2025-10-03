@@ -34,7 +34,7 @@ if [ $? -ne 0 ];then
 	dnf install mysql -y &>>$LOG_FILENAME
 	VALIDATE $? mysql
 else
-	echo -e "$B $2 $N already installed $Y Skipping...!$N"
+	echo -e "$B $2 $N already installed $Y Skipping...!$N" tee &>>$LOG_FILENAME
 fi
 #unzip installation
 dnf list installed unzip &>>$LOG_FILENAME
@@ -43,7 +43,7 @@ if [ $? -ne 0 ];then
 	dnf install unzip -y &>>$LOG_FILENAME
 	VALIDATE $? UNZIP
 else
-	echo -e "$B $2 $N already installed $Y Skipping...!$N"
+	echo -e "$B $2 $N already installed $Y Skipping...!$N" tee &>>$LOG_FILENAME
 fi
 #tree installation
 dnf list installed tree &>>$LOG_FILENAME
@@ -52,7 +52,7 @@ if [ $? -ne 0 ];then
 	dnf install tree -y &>>$LOG_FILENAME
 	VALIDATE $? TREE
 else
-	echo -e "$B $2 $N already installed $Y Skipping...!$N"
+	echo -e "$B $2 $N already installed $Y Skipping...!$N" tee &>>$LOG_FILENAME
 fi
 #python3 installation
 dnf list installed python3 &>>$LOG_FILENAME
@@ -61,6 +61,6 @@ if [ $? -ne 0 ];then
 	dnf install python3 -y &>>$LOG_FILENAME
 	VALIDATE $? PYTHON3
 else
-	echo -e "$B $2 $N already installed $Y Skipping...!$N"
+	echo -e "$B $2 $N already installed $Y Skipping...!$N" tee &>>$LOG_FILENAME
 fi
 
