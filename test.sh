@@ -5,8 +5,13 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+LOGS_FOLDER="/var/log/shell-script"
+SCRIPT_NAME="echo test.sh | cut -d "." -f1"
+LOG_FILENAME="$LOG_FOLDER/$SCRIPT_NAME.log"
+mkdir -p shell-script
+
 if [ $USER_ID -ne 0 ]; then
-    echo "Error::User has not root privilizes"
+    echo "Error::User has not root privilizes" 
     exit 1
 fi
 #Using functions
@@ -15,35 +20,35 @@ if [ $1 -ne 0 ]; then
     echo "Error::Command not found..! pls check once the command"
     exit 1
 else
-    echo "Success:: $2 installed Successfuly"
+    echo "Success:: $2 installed Successfuly" &>>LOG_FILENAME
 fi  
 } 
 #unzip installation
-dnf list installed unzip -y
+dnf list installed unzip -y &>>LOG_FILENAME
 if [ $? -ne 0 ]; then
     echo -e "$R NOT INSTALLED $N ::install the $2 on this system"
-    dnf install unzip -y
+    dnf install unzip -y &>>LOG_FILENAME
     VALIDATE $? MYSQL
 else    
-    echo -e "$2 already installed $Y Skipping $N ...!"
+    echo -e "$2 already installed $Y Skipping $N ...!" &>>LOG_FILENAME
 fi
 #tree installation
-dnf list installed tree -y
+dnf list installed tree -y &>>LOG_FILENAME
 if [ $? -ne 0 ]; then
-    echo "NOT INSTALLED::install the $2 on this system"
-    dnf install tree -y
+    echo -e "NOT INSTALLED::install the $2 on this system" &>>LOG_FILENAME
+    dnf install tree -y &>>LOG_FILENAME
     VALIDATE $? TREE
 else    
-    echo -e "$2 already installed $Y Skipping $N ...!"
+    echo -e "$2 already installed $Y Skipping $N ...!" &>>LOG_FILENAME
 fi
 #nginx installation
-dnf list installed nginx -y
+dnf list installed nginx -y &>>LOG_FILENAME
 if [ $? -ne 0 ]; then
-    echo "NOT INSTALLED::install the $2 on this system"
-    dnf install nginx -y
+    echo -e "NOT INSTALLED::install the $2 on this system" &>>LOG_FILENAME
+    dnf install nginx -y &>>LOG_FILENAME
     VALIDATE $? NGINX
 else    
-    echo -e "$2 already installed $Y Skipping $N ...!"
+    echo -e "$2 already installed $Y Skipping $N ...!" &>>LOG_FILENAME
 fi
 
 
