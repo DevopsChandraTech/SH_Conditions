@@ -12,17 +12,35 @@ if [ $1 -ne 0 ]; then
 else
     echo "Success:: $2 installed Successfuly"
 fi  
-}
-#command check 
+} 
 #unzip installation
-dnf install unzip -y
-VALIDATE $? MYSQL
+dnf list installed unzip -y
+if [ $? -ne 0 ]; then
+    echo "NOT INSTALLED::install the $2 on this system"
+    dnf install unzip -y
+    VALIDATE $? MYSQL
+else    
+    echo "$2 already installed Skipping...!"
+fi
 #tree installation
-dnf install tree -y
-VALIDATE $? TREE
+dnf list installed tree -y
+if [ $? -ne 0 ]; then
+    echo "NOT INSTALLED::install the $2 on this system"
+    dnf install tree -y
+    VALIDATE $? TREE
+else    
+    echo "$2 already installed Skipping...!"
+fi
 #nginx installation
-dnf install nginx -y
-VALIDATE $? NGINX
+dnf list installed nginx -y
+if [ $? -ne 0 ]; then
+    echo "NOT INSTALLED::install the $2 on this system"
+    dnf install nginx -y
+    VALIDATE $? NGINX
+else    
+    echo "$2 already installed Skipping...!"
+fi
+
 
 
 
