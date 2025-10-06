@@ -40,6 +40,6 @@ do
         echo "$package not installed"
         dnf install $package -y &>>$LOG_FILENAME
     else 
-        echo "the $package already installed $Y Skipping $N"
+        echo -e "the $package already installed $Y Skipping $N"
     fi
 done
