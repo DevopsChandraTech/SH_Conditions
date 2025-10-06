@@ -10,6 +10,8 @@ dnf install unzip -y
 if [ $? -ne 0 ]; then
     echo "Error::Command not found..! pls check once the command"
     exit 1
+else
+    echo "Success:: unzip installed Successfuly"
 fi
 
 #tree installation
@@ -17,6 +19,8 @@ dnf install tree -y
 if [ $? -ne 0 ]; then
     echo "Error::Command not found..! pls check once the command"
     exit 1
+else
+    echo "Success:: tree installed Successfuly"
 fi
 
 #nginx installation
@@ -24,6 +28,8 @@ dnf install nginx -y
 if [ $? -ne 0 ]; then
     echo "Error::Command not found..! pls check once the command"
     exit 1
+else
+    echo "Success:: nginx installed Successfuly"
 fi
 
 
