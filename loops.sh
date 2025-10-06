@@ -27,3 +27,19 @@ else
     echo -e "SUCCESS::$G $2 $N INSTALLATION IS $Y SUCCESSFULL $N "
     
 fi
+}
+#using loops
+    #check the package status if the package not installed then install the package 
+    #$? -ne 0 then package not installed
+    #if the package already installed then skip the package
+    #$? -eq 0 then package already installed skipping..!
+for package in $@
+do
+    dnf list installed $package &>>$LOG_FILENAME
+    if [ $? -ne 0 ]; then
+        echo "$package not installed"
+        dnf install $package -y &>>$LOG_FILENAME
+    else 
+        echo "the $package already installed $Y Skipping $N"
+    fi
+done
