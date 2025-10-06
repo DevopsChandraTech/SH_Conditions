@@ -24,28 +24,28 @@ else
 fi  
 } 
 #unzip installation
-dnf list installed unzip -y &>>LOG_FILENAME
+dnf list installed unzip -y &>>$LOG_FILENAME
 if [ $? -ne 0 ]; then
     echo -e "$R NOT INSTALLED $N ::install the $2 on this system"
-    dnf install unzip -y &>>LOG_FILENAME
-    VALIDATE $? MYSQL
+    dnf install unzip -y &>>$LOG_FILENAME
+    VALIDATE $? UNZIP
 else    
     echo -e "$2 already installed $Y Skipping $N ...!" &>>LOG_FILENAME
 fi
 #tree installation
-dnf list installed tree -y &>>LOG_FILENAME
+dnf list installed tree -y &>>$LOG_FILENAME
 if [ $? -ne 0 ]; then
     echo -e "$2 NOT INSTALLED::install the $2 on this system" &>>LOG_FILENAME
-    dnf install tree -y &>>LOG_FILENAME
+    dnf install tree -y &>>$LOG_FILENAME
     VALIDATE $? TREE
 else    
     echo -e "$2 already installed $Y Skipping $N ...!" &>>LOG_FILENAME
 fi
 #nginx installation
-dnf list installed nginx -y &>>LOG_FILENAME
+dnf list installed nginx -y &>>$LOG_FILENAME
 if [ $? -ne 0 ]; then
     echo -e "NOT INSTALLED::install the $2 on this system" &>>LOG_FILENAME
-    dnf install nginx -y &>>LOG_FILENAME
+    dnf install nginx -y &>>$LOG_FILENAME
     VALIDATE $? NGINX
 else    
     echo -e "$2 already installed $Y Skipping $N ...!" &>>LOG_FILENAME
