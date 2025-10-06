@@ -21,7 +21,7 @@ fi
 #unzip installation
 dnf list installed unzip -y
 if [ $? -ne 0 ]; then
-    echo "$R NOT INSTALLED $N ::install the $2 on this system"
+    echo -e "$R NOT INSTALLED $N ::install the $2 on this system"
     dnf install unzip -y
     VALIDATE $? MYSQL
 else    
@@ -34,7 +34,7 @@ if [ $? -ne 0 ]; then
     dnf install tree -y
     VALIDATE $? TREE
 else    
-    echo "$2 already installed $Y Skipping $N ...!"
+    echo -e "$2 already installed $Y Skipping $N ...!"
 fi
 #nginx installation
 dnf list installed nginx -y
@@ -43,7 +43,7 @@ if [ $? -ne 0 ]; then
     dnf install nginx -y
     VALIDATE $? NGINX
 else    
-    echo "$2 already installed $Y Skipping $N ...!"
+    echo -e "$2 already installed $Y Skipping $N ...!"
 fi
 
 
