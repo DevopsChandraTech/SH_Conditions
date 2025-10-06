@@ -8,7 +8,7 @@ N="\e[0m"
 LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME="echo test.sh | cut -d "." -f1"
 LOG_FILENAME="$LOG_FOLDER/$SCRIPT_NAME.log"
-mkdir -p shell-script
+mkdir -p /var/log/shell-script
 
 if [ $USER_ID -ne 0 ]; then
     echo "Error::User has not root privilizes" 
