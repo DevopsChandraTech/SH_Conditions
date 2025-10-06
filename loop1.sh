@@ -1,5 +1,5 @@
 #!bin/bash
-for $@ in mysql,nginx;
+for i in {1..20}
 do
-    echo "$@"
+    echo "$i"
 done
