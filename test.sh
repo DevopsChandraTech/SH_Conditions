@@ -20,7 +20,7 @@ if [ $1 -ne 0 ]; then
     echo "Error::Command not found..! pls check once the command"
     exit 1
 else
-    echo "Success:: $2 installed Successfuly" &>>LOG_FILENAME
+    echo "Success:: $2 installed Successfuly" 
 fi  
 } 
 #unzip installation
@@ -35,7 +35,7 @@ fi
 #tree installation
 dnf list installed tree -y &>>LOG_FILENAME
 if [ $? -ne 0 ]; then
-    echo -e "NOT INSTALLED::install the $2 on this system" &>>LOG_FILENAME
+    echo -e "$2 NOT INSTALLED::install the $2 on this system" &>>LOG_FILENAME
     dnf install tree -y &>>LOG_FILENAME
     VALIDATE $? TREE
 else    
