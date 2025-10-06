@@ -26,7 +26,7 @@ fi
 #unzip installation
 dnf list installed unzip -y &>>$LOG_FILENAME
 if [ $? -ne 0 ]; then
-    echo -e "$R NOT INSTALLED $N ::install the $2 on this system"
+    echo -e " $R NOT INSTALLED $N ::install the $2 on this system"
     dnf install unzip -y &>>$LOG_FILENAME
     VALIDATE $? UNZIP
 else    

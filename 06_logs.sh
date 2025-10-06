@@ -11,6 +11,7 @@ LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILENAME="$LOGS_FOLDER/$SCRIPT_NAME.log"
 mkdir -p $LOGS_FOLDER
+echo "the script exectuing $date" | tee -a $LOG_FILENAME #append the execution file to log file
 
 if [ $USER_ID -ne 0 ]; then
     echo "ERROR:: NEED TO RUN WITH ROOT USER PRIVILIZES"
