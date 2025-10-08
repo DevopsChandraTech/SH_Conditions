@@ -38,4 +38,5 @@ if [ $? -ne 0 ]; then
     dnf install $package -y
 else
     echo "$package already Installed $YSkipping...! $N"
+fi
 done
