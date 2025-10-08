@@ -17,7 +17,6 @@ if [ $USER_ID -ne 0 ]; then
     echo "ERROR:: NEED TO RUN WITH ROOT USER PRIVILIZES"
     exit 1
 fi
-
 #Command Validation using FUNCTIONS:
 VALIDATE(){ #functions passing the variable as args like shell script args
 if [ $1 -ne 0 ]; then
@@ -36,6 +35,7 @@ dnf list installed $package
 if [ $? -ne 0 ]; then   
     echo "$package Not Installed Proceed with Installation"
     dnf install $package -y
+    VALIDATE $? $package
 else
     echo "$package already Installed $YSkipping...! $N"
 fi
