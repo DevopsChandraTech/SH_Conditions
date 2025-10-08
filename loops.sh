@@ -28,19 +28,13 @@ else
     
 fi
 }
-#using loops
-    #check the package status if the package not installed then install the package 
-    #$? -ne 0 then package not installed
-    #if the package already installed then skip the package
-    #$? -eq 0 then package already installed skipping..!
+#USING LOOPS (FOR LOOP)
 for package in $@
 do
-    dnf list installed $package &>>$LOG_FILENAME
+    #if the $? -ne 0 install the package if equal to 0 then skip
+    dnf list installed $package
     if [ $? -ne 0 ]; then
-        echo "$package not installed"
-        dnf install $package -y &>>$LOG_FILENAME
-        VALIDATE $? $package
-    else 
-        echo -e "the $package already installed $Y Skipping $N"
-    fi
+        ehco "$package $R Not Installed $N,Proceed with $package installation"
+    else
+        echo "$package already Installed $Y Skipping...! $N"
 done
